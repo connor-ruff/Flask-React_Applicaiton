@@ -15,8 +15,16 @@ def home():
 
 @app.route('/foods/', methods=['PUT'])
 def food():
-    data = json.loads(request.data)
-    return json.dumps(data)
+    output = {}
+    try:
+        data = request.form
+        output = data.to_dict()
+    except Exception as e:
+        output['result'] = 'failure'
+        output['message'] = str(e)
+
+    return json.dumps(output)
+
     
 
 app.run()
