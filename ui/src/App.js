@@ -105,23 +105,38 @@ class App extends Component {
 
   render(){
     return (
+      
       <div className="App">
         <div className="container">
-          <Header />
-          <Alcohol IncludeNut={this.IncludeNut} setNutVal={this.setNutVal} setNutOp={this.setNutOp}/>
-          <Protein IncludeNut={this.IncludeNut} setNutVal={this.setNutVal} setNutOp={this.setNutOp}/>
-          <Carb IncludeNut={this.IncludeNut} setNutVal={this.setNutVal} setNutOp={this.setNutOp}/>
-          <Sugar IncludeNut={this.IncludeNut} setNutVal={this.setNutVal} setNutOp={this.setNutOp}/>
-          <Lipid IncludeNut={this.IncludeNut} setNutVal={this.setNutVal} setNutOp={this.setNutOp}/>
-          <Ash IncludeNut={this.IncludeNut} setNutVal={this.setNutVal} setNutOp={this.setNutOp}/>
-          <Energy IncludeNut={this.IncludeNut} setNutVal={this.setNutVal} setNutOp={this.setNutOp}/>
-          <Fiber IncludeNut={this.IncludeNut} setNutVal={this.setNutVal} setNutOp={this.setNutOp}/>
-          <br></br>
-          <GoButton />
-          <br></br>
-          <Display />
+       
+            <Header />
+
+           
+            <Alcohol IncludeNut={this.IncludeNut} setNutVal={this.setNutVal} setNutOp={this.setNutOp}/>
+          
+
+            <Protein IncludeNut={this.IncludeNut} setNutVal={this.setNutVal} setNutOp={this.setNutOp}/>
+
+            <Carb IncludeNut={this.IncludeNut} setNutVal={this.setNutVal} setNutOp={this.setNutOp}/>
+
+            <Sugar IncludeNut={this.IncludeNut} setNutVal={this.setNutVal} setNutOp={this.setNutOp}/>
+
+            <Lipid IncludeNut={this.IncludeNut} setNutVal={this.setNutVal} setNutOp={this.setNutOp}/>
+
+            <Ash IncludeNut={this.IncludeNut} setNutVal={this.setNutVal} setNutOp={this.setNutOp}/>
+
+            <Energy IncludeNut={this.IncludeNut} setNutVal={this.setNutVal} setNutOp={this.setNutOp}/>
+
+            <Fiber IncludeNut={this.IncludeNut} setNutVal={this.setNutVal} setNutOp={this.setNutOp}/>
+
+            <br></br>
+            <GoButton />
+            <br></br>
+            <Display />
+        
         </div>
       </div>
+      
     );
   }
 }

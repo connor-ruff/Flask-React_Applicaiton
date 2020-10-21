@@ -12,6 +12,9 @@ body {
 
 .container{
   background-color: #F3ECEB;
-  margin-left: 300px;
-  margin-right: 300px;
+  padding-left: 170px;
+  padding-right: 170px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  
 }
