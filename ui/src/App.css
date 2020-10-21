@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+  padding: 1;
+}
+
+body {
+  font-family: sans-serif;
+  line-height: 2.0;
+  text-align: center;
+  background-color: #ffff;
+}
+
+.container{
+  background-color: #F3ECEB;
+  margin-left: 300px;
+  margin-right: 300px;
+}
