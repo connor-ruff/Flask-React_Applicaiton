@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 import Header from './Components/Header';
 import './App.css';
 import Alcohol from './Components/Alcohol';
@@ -103,6 +104,28 @@ class App extends Component {
     } )})
   }
 
+  getFacts = () => {
+
+    var toSend = {};
+    var nutList = [];
+    for (var index in this.state['nutrients']){
+      if (this.state['nutrients'][index].include){
+        var temp = {};
+        temp['id'] = this.state['nutrients'][index].id;
+        temp['amount']  = this.state['nutrients'][index].amount;
+        temp['operand'] = this.state['nutrients'][index].operand;
+        nutList.push(temp);
+      }
+    }
+
+    toSend['data'] = nutList;
+
+    
+    const article = { test: 'message', second: 'okayathen'};
+    axios.post('http://127.0.0.1:5000/foods/', toSend)
+      .then(response => console.log(response.data))
+  }
+
   render(){
     return (
       
@@ -130,7 +153,7 @@ class App extends Component {
             <Fiber IncludeNut={this.IncludeNut} setNutVal={this.setNutVal} setNutOp={this.setNutOp}/>
 
             <br></br>
-            <GoButton />
+            <GoButton getFacts={this.getFacts} />
             <br></br>
             <Display />
         

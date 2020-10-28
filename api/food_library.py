@@ -35,8 +35,6 @@ class _food_database:
         return result
 
 
-
-
     # Return all food ID's that are over a threshold for a certain nutrient
     def get_greater_than(self, foodsToSearch, nutrientID, threshold):
         
@@ -50,7 +48,6 @@ class _food_database:
 
 
 
-   
     # Return all food ID's that are under a threshold for a certain nutrient
     def get_less_than(self, foodsToSearch, nutrientID, threshold):
         
@@ -61,6 +58,15 @@ class _food_database:
                 result.append(entry)
 
         return result
+
+    def get_food_structure(self, foodID):
+        output = {}
+        output['Name'] = self.daddyJSON[foodID]['Name']
+        output['Measure'] = self.daddyJSON[foodID]['Measure']
+        output['Nutrients'] = self.daddyJSON[foodID]['Nutrients']
+        
+        return output
+
 
 
                 

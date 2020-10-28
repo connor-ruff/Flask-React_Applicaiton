@@ -5,7 +5,7 @@ export class GoButton extends Component {
         return (
             <div style={styleThis}>
 
-                <button>COMPUTE!</button>
+                <button onClick={this.props.getFacts.bind(this)}>COMPUTE!</button>
             </div>
         )
     }
