@@ -106,6 +106,11 @@ class App extends Component {
 
   getFacts = () => {
 
+    // Clear Display
+    var dispHead = document.getElementById("dispHeader")
+    dispHead.innerHTML = ""
+
+    // Send Over Data
     var toSend = {};
     var nutList = [];
     for (var index in this.state['nutrients']){
@@ -120,11 +125,51 @@ class App extends Component {
 
     toSend['data'] = nutList;
 
-    
-    const article = { test: 'message', second: 'okayathen'};
     axios.post('http://127.0.0.1:5000/foods/', toSend)
-      .then(response => console.log(response.data))
+      .then(response => {
+        this.showData(response.data['data'])
+      })
   }
+
+
+  showData(data){
+
+      var disp = document.getElementById("dispHeader");
+
+
+      for (var elem in data){
+        var foodObj = data[elem];
+  
+        // Add A New row
+        var newRow = document.createElement("tr")
+        disp.appendChild(newRow)
+
+        // Name Entry
+        var nameTD = document.createElement("td")
+        var textNode = document.createTextNode(foodObj['Name'])
+        nameTD.appendChild(textNode)
+        newRow.appendChild(nameTD)
+
+        // Measure Entry
+        var measTD = document.createElement("td")
+        textNode = document.createTextNode(foodObj['Measure'])
+        measTD.appendChild(textNode)
+        newRow.appendChild(measTD)
+
+        var nutTD ;
+        for (var nut in foodObj['Nutrients']){
+          nutTD = document.createElement("td")
+          textNode = document.createTextNode(foodObj['Nutrients'][nut]['NutrientValue'])
+          nutTD.appendChild(textNode)
+          newRow.appendChild(nutTD)
+        }
+
+      }
+      
+  
+  }
+
+ 
 
   render(){
     return (

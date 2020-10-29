@@ -1,6 +1,12 @@
+/*
 * {
   box-sizing: border-box;
   padding: 1;
+}
+*/
+
+td, th, .tableClass {
+  border: 1px solid black;
 }
 
 body {
