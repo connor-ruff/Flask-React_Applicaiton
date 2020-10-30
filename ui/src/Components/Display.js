@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Table from 'react-bootstrap/Table'
 import '../App.css';
 
 export class Display extends Component {
@@ -8,7 +9,7 @@ export class Display extends Component {
         return (
             <div>
                 <h3>Display</h3>
-                <table className="tableClass">
+                <Table striped bordered hover variant="dark" className="tableClass">
                     <thead>
                     <tr>
                         <th>Food Name / Description</th>
@@ -27,7 +28,7 @@ export class Display extends Component {
                     <tbody id="dispHeader" >
 
                     </tbody>
-                </table>
+                </Table>
             </div>
         )
     }

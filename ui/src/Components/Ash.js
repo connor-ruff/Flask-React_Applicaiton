@@ -28,6 +28,9 @@ export class Ash extends Component {
                         onChange={this.props.setNutVal.bind(this, id)}
                     />
                 </Col>
+                <Col>
+                    <label>(g)</label>
+                    </Col>
             </Row>
         </Container>
         )

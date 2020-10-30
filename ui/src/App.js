@@ -174,8 +174,9 @@ class App extends Component {
   render(){
     return (
       
+    
       <div className="App">
-        <div className="container">
+        <div className="container-fluid">
        
             <Header />
 
@@ -204,6 +205,7 @@ class App extends Component {
         
         </div>
       </div>
+    
       
     );
   }

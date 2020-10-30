@@ -7,7 +7,7 @@ export class Lipid extends Component {
         
         return (
             <Container>  
-            <Row>
+            <Row id="rowLip">
                 <Col> 
                     <input type="checkbox" onChange={this.props.IncludeNut.bind(this, id)}/>{' '}
                     <label> Lipid </label>
@@ -28,6 +28,9 @@ export class Lipid extends Component {
                         padding='5px' 
                         onChange={this.props.setNutVal.bind(this, id)}
                     />
+                </Col>
+                <Col>
+                    <label>(g)</label>
                 </Col>
             </Row>
         </Container>

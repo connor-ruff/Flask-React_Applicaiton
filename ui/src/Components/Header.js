@@ -1,19 +1,31 @@
 import React from 'react';
+import Jumbotron from 'react-bootstrap/Jumbotron'
+import '../App.css';
+
 
 
 function Header(){
     return (
-        <header style={headerStyle}>
-            <h1>Nutrient Specification</h1>
-        </header>
+
+        <Jumbotron fluid style={{backgroundImage: '../banana.jpg', backgroundSize: 'cover'}}>
+               
+                    <h1 style={headerStyle}>Nutrient Specification</h1>
+                    <p style={subStyle}>Select nutrient limits to see foods that meet the criteria</p>
+                
+           
+        </Jumbotron>
     )
 }
 
 const headerStyle = {
-    background: '#333',
-    color: '#fff',
-    textAlign: 'center',
-    padding: '10px'
+    color: 'white',
+    fontSize: '80px'
+
+  }
+
+const subStyle = {
+    color: 'white',
+    fontSize: '20px'
 }
 
 export default Header;

@@ -28,6 +28,9 @@ export class Fiber extends Component {
                         onChange={this.props.setNutVal.bind(this, id)}
                     />
                 </Col>
+                <Col>
+                    <label>(g)</label>
+                </Col>
             </Row>
         </Container>
         )
