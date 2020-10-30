@@ -6,7 +6,7 @@ export class Energy extends Component {
         const id = 208;
         return (
             <Container>  
-            <Row>
+            <Row id="rowEn">
                 <Col> 
                     <input type="checkbox" onChange={this.props.IncludeNut.bind(this, id)}/>{' '}
                     <label> Energy </label>
@@ -27,6 +27,9 @@ export class Energy extends Component {
                         padding='5px' 
                         onChange={this.props.setNutVal.bind(this, id)}
                     />
+                </Col>
+                <Col>
+                    <label>(kcal)</label>
                 </Col>
             </Row>
         </Container>

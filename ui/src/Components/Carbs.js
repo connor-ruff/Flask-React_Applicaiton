@@ -6,7 +6,7 @@ export class Carb extends Component {
         const id = 205;
         return (
             <Container>  
-            <Row>
+            <Row id="rowCarb">
                 <Col> 
                     <input type="checkbox" onChange={this.props.IncludeNut.bind(this, id)}/>{' '}
                     <label> Carb </label>
@@ -28,6 +28,9 @@ export class Carb extends Component {
                         onChange={this.props.setNutVal.bind(this, id)}
                     />
                 </Col>
+                <Col>
+                    <label>(g)</label>
+                    </Col>
             </Row>
         </Container>
         )

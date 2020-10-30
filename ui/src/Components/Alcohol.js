@@ -11,7 +11,8 @@ export class Alcohol extends Component {
 
         return (
             <Container>  
-                <Row>
+               
+                <Row id="rowAlc">
                     <Col> 
                         <input type="checkbox" onChange={this.props.IncludeNut.bind(this, id)}/>{' '}
                         <label> Alcohol </label>
@@ -29,11 +30,15 @@ export class Alcohol extends Component {
                             name="threshold"
                             placeholder="Enter Threshold..."
                             style={{flex: '10', padding: '0px'}}
-                            padding='5px' 
+                            padding='20px' 
                             onChange={this.props.setNutVal.bind(this, id)}
                         />
                     </Col>
+                    <Col>
+                    <label>(g)</label>
+                    </Col>
                 </Row>
+             
             </Container>
                     
         )
