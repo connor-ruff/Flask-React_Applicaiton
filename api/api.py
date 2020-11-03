@@ -32,6 +32,8 @@ def food():
                 listofFoods = fdb.get_less_than(listofFoods, str(nutrient['id']), nutrient['amount'])
             elif nutrient['operand'] == 'gt':
                 listofFoods = fdb.get_greater_than(listofFoods, str(nutrient['id']), nutrient['amount'])
+            elif nutrient['operand'] =='eq':
+                listofFoods = fdb.get_equal_to(listofFoods, str(nutrient['id']), nutrient['amount'])
 
         
         output['data'] = []

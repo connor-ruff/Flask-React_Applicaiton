@@ -6,7 +6,7 @@ export class Ash extends Component {
         const id = 207;
         return (
             <Container>  
-            <Row>
+            <Row id="rowAsh">
                 <Col> 
                     <input type="checkbox" onChange={this.props.IncludeNut.bind(this, id)}/>{' '}
                     <label> Ash </label>

@@ -6,7 +6,7 @@ export class Fiber extends Component {
         const id = 291;
         return (
             <Container>  
-            <Row>
+            <Row id="rowFib">
                 <Col> 
                     <input type="checkbox" onChange={this.props.IncludeNut.bind(this, id)}/>{' '}
                     <label> Fiber </label>
