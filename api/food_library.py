@@ -1,5 +1,6 @@
 
 import json
+import math
 
 class _food_database:
 
@@ -57,6 +58,13 @@ class _food_database:
                 #print(self.daddyJSON[entry]['Nutrients'][nutrientID]['NutrientValue'])
                 result.append(entry)
 
+        return result
+
+    def get_equal_to(self, foodsToSearch, nutrientID, threshold):
+        result = []
+        for entry in foodsToSearch:
+            if math.isclose(self.daddyJSON[entry]['Nutrients'][nutrientID]['NutrientValue'], threshold):
+                result.append(entry)
         return result
 
     def get_food_structure(self, foodID):

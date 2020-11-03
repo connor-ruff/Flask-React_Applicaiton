@@ -11,6 +11,7 @@ function Header(){
                
                     <h1 style={headerStyle}>Nutrient Specification</h1>
                     <p style={subStyle}>Select nutrient limits to see foods that meet the criteria</p>
+                    <p style={subStyle}>Select checkbox to include specification in results</p>
                 
            
         </Jumbotron>

@@ -8,6 +8,9 @@ export class GoButton extends Component {
 
 
                 <Button variant="primary" onClick={this.props.getFacts.bind(this)}>COMPUTE!</Button>
+                <div className="alrt alert-warning"> 
+                    <strong id="errorMessage"></strong>
+                </div>
             </div>
         )
     }

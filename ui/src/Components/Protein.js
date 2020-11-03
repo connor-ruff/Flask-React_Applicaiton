@@ -7,7 +7,7 @@ export class Protein extends Component {
         
         return (
             <Container>  
-                <Row>
+                <Row id="rowProt">
                     <Col> 
                         <input type="checkbox" onChange={this.props.IncludeNut.bind(this, id)}/>{' '}
                         <label> Protein </label>

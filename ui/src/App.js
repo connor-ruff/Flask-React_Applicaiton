@@ -15,7 +15,10 @@ import Display from './Components/Display'
 
 class App extends Component {
 
+  
+
     state= {
+      apiURL : 'http://localhost:5000/foods/',
       nutrients: [
           {
             id: 221,
@@ -73,6 +76,9 @@ class App extends Component {
             amount: 0.0,
             operand: "lt"
           }
+      ],
+      nutCols : [
+        ['rowAlc','#ffffff'], ['rowProt','#F3F3F3'], ['rowCarb','#ffffff'], ['rowSug','#F3F3F3'], ['rowLip','#ffffff'], ['rowAsh','#F3F3F3'], ['rowEn','#ffffff'], ['rowFib','#F3F3F3']
       ]
     }
 
@@ -106,15 +112,35 @@ class App extends Component {
 
   getFacts = () => {
 
-    // Clear Display
+    
+    // Clear Display and Reset any Error Message
+    for (var entry in this.state.nutCols){
+      document.getElementById(this.state.nutCols[entry][0]).style.backgroundColor = this.state.nutCols[entry][1]
+    }
+    document.getElementById("errorMessage").innerHTML = ''
+
     var dispHead = document.getElementById("dispHeader")
     dispHead.innerHTML = ""
+
 
     // Send Over Data
     var toSend = {};
     var nutList = [];
     for (var index in this.state['nutrients']){
       if (this.state['nutrients'][index].include){
+
+        // Check if numeric value
+        if(isNaN(this.state['nutrients'][index].amount)){
+          this.erroneousInput( this.state['nutrients'][index]['id'])
+        }
+        // Check if impossible limit is set
+        if (this.state['nutrients'][index].amount < 0){
+          this.erroneousInput( this.state['nutrients'][index]['id'])
+        }
+        if(this.state['nutrients'][index].amount === 0 && this.state['nutrients'][index].operand === "lt" ){
+          this.erroneousInput( this.state['nutrients'][index]['id'])
+        }
+
         var temp = {};
         temp['id'] = this.state['nutrients'][index].id;
         temp['amount']  = this.state['nutrients'][index].amount;
@@ -125,10 +151,12 @@ class App extends Component {
 
     toSend['data'] = nutList;
 
-    axios.post('http://127.0.0.1:5000/foods/', toSend)
-      .then(response => {
-        this.showData(response.data['data'])
-      })
+    if (!(nutList === undefined || nutList.length === 0)){
+      axios.post(this.state.apiURL, toSend)
+        .then(response => {
+          this.showData(response.data['data'])
+        })
+    }
   }
 
 
@@ -169,13 +197,59 @@ class App extends Component {
   
   }
 
+  erroneousInput(errorNut){
+    
+  
+    var IDtoEdit;
+
+  
+    var errorMessage = ('Included inputs must be nonnegative real numbers and no nutrients can have values less than 0');
+ 
+
+    document.getElementById("errorMessage").innerHTML = errorMessage;
+
+    switch(errorNut){
+      case 221:
+        IDtoEdit = "rowAlc";
+        break;
+      case 203:
+        IDtoEdit = "rowProt";
+        break;
+      case 205:
+        IDtoEdit = "rowCarb";
+        break;
+      case 269:
+        IDtoEdit = "rowSug";
+        break;
+      case 204:
+        IDtoEdit = "rowLip";
+        break;
+      case 207:
+        IDtoEdit = "rowAsh";
+        break;
+      case 208:
+        IDtoEdit = "rowEn";
+        break;
+      case 291:
+        IDtoEdit = "rowFib";
+        break;
+      default:
+        break;
+
+    }
+
+    var panel = document.getElementById(IDtoEdit);
+    panel.style.backgroundColor = '#ff000080' 
+
+  }
+
  
 
   render(){
     return (
       
     
-      <div className="App">
+      <div className="App" id="topLevelDiv">
         <div className="container-fluid">
        
             <Header />
